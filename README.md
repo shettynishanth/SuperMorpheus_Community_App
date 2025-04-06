@@ -1,3 +1,54 @@
+# SuperMorpheus Community Member Directory
+
+A responsive web application for managing and exploring community members, built with React and TypeScript.
+
+## Features
+
+- Real-time member search by name
+- Sorting (A-Z/Z-A)
+- Member details toggle (join date/interests)
+- Add new members with validation
+- Fully responsive design
+
+## Technologies
+
+- **Framework**: [React](https://react.dev/) (Vite)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: CSS Modules
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+- **State Management**: React Hooks
+
+## Installation
+
+### 1. Clone the repository
+  ```bash
+    git clone https://github.com/your-username/supermorpheus-community-app.git
+    cd supermorpheus-community-app
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
