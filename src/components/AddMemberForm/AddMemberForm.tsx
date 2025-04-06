@@ -16,6 +16,7 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ onAddMember }) => {
   });
   const [interestInput, setInterestInput] = useState('');
   const [showForm, setShowForm] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,6 +24,10 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ onAddMember }) => {
       alert('Please enter a name');
       return;
     }
+    setShowConfirmation(true);
+  };
+
+  const confirmSubmission = () => {
     onAddMember(formData);
     setFormData({
       name: '',
@@ -33,7 +38,9 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ onAddMember }) => {
     });
     setInterestInput('');
     setShowForm(false);
+    setShowConfirmation(false);
   };
+
 
   const handleInterestKeyPress = (e: React.KeyboardEvent) => {
     if (['Enter', ','].includes(e.key)) {
@@ -137,9 +144,41 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ onAddMember }) => {
           </div>
 
           <button type="submit" className={styles.submitButton}>
-            ✅ Add Member
+            📝 Add Member
           </button>
         </form>
+      )}
+
+      {showConfirmation && (
+        <div className={styles.confirmationOverlay}>
+          <div className={styles.confirmationModal}>
+            <div className={styles.confirmationHeader}>
+              <h3>Confirm Submission</h3>
+            </div>
+            <div className={styles.confirmationBody}>
+              <p>Are you sure you want to add <strong>{formData.name}</strong> to the member directory?</p>
+              <div className={styles.confirmationDetails}>
+                <p>Role: {formData.role || '-'}</p>
+                <p>Focus: {formData.focus || '-'}</p>
+                <p>Interests: {formData.interests.join(', ') || '-'}</p>
+              </div>
+            </div>
+            <div className={styles.confirmationActions}>
+              <button 
+                className={styles.confirmButton}
+                onClick={confirmSubmission}
+              >
+                ✅ Confirm
+              </button>
+              <button 
+                className={styles.cancelButton}
+                onClick={() => setShowConfirmation(false)}
+              >
+                ❌ Cancel
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
