@@ -1,0 +1,120 @@
+/* SearchBar.module.css */
+.searchBarContainer {
+  --primary-color: #4361ee;
+  --text-color: #2b2d42;
+  --border-color: #e2e8f0;
+  --placeholder-color: #94a3b8;
+  --hover-color: #f1f5f9;
+  --transition-speed: 0.2s;
+  --border-radius: 12px;
+  --focus-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+  
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1rem 3.5rem 1rem 3.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: white;
+  color: var(--text-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all var(--transition-speed) ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: var(--focus-shadow);
+}
+
+.searchInput::placeholder {
+  color: var(--placeholder-color);
+  opacity: 1;
+}
+
+.searchInput:hover {
+  background-color: var(--hover-color);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1.25rem;
+  color: var(--placeholder-color);
+  pointer-events: none;
+  transition: color var(--transition-speed);
+}
+
+.searchInput:focus ~ .searchIcon {
+  color: var(--primary-color);
+}
+
+.clearButton {
+  position: absolute;
+  right: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  background: transparent;
+  color: var(--placeholder-color);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all var(--transition-speed);
+}
+
+.clearButton:hover {
+  color: var(--primary-color);
+  background: var(--hover-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .searchInput {
+    padding: 0.9rem 3.25rem 0.9rem 3.25rem;
+    font-size: 0.95rem;
+  }
+  
+  .searchIcon,
+  .clearButton {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .searchIcon {
+    left: 1rem;
+  }
+  
+  .clearButton {
+    right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchInput {
+    padding: 0.8rem 3rem 0.8rem 3rem;
+    font-size: 0.9rem;
+  }
+  
+  .searchIcon {
+    left: 0.9rem;
+  }
+  
+  .clearButton {
+    right: 0.9rem;
+  }
+}
