@@ -119,3 +119,129 @@
     font-size: 1.25rem;
   }
 }
+
+/* Add these new styles */
+
+.confirmationOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.confirmationModal {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.confirmationHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.confirmationHeader h3 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.confirmationBody {
+  margin-bottom: 2rem;
+}
+
+.confirmationBody p {
+  color: #34495e;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.confirmationDetails {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.confirmationDetails p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.confirmationActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.confirmButton {
+  background: #2ecc71;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.confirmButton:hover {
+  background: #27ae60;
+}
+
+.cancelButton {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.cancelButton:hover {
+  background: #c0392b;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Update existing styles with emojis */
+.submitButton {
+  background-color: #3498db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Add some transitions to the form */
+.form {
+  transition: all 0.3s ease;
+  transform-origin: top;
+}
+
+.formGroup input {
+  transition: all 0.2s ease;
+}
