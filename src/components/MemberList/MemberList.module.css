@@ -215,3 +215,25 @@
 button {
   min-height: 44px;
 }
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default: 3 cards per row */
+  gap: 1.25rem;
+  padding: 0.5rem 0;
+}
+
+/* Tablet (max-width: 768px) - 2 cards */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (max-width: 480px) - 1 card */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
