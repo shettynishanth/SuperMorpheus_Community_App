@@ -21,7 +21,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, onChange, onClear }) => {
         </div>
         <input
           type="text"
-          placeholder="Search members by name, role, or focus..."
+          placeholder="Search members by name..."
           value={value}
           onChange={onChange}
           className={styles.searchInput}
