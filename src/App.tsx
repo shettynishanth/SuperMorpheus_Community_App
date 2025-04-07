@@ -28,14 +28,14 @@ const App: React.FC = () => {
 
      
 
-      <main className={styles.mainContent}>
+{/*       <main className={styles.mainContent}> */}
         <section id="members">
           <MemberList />
         </section>
         <section id="add-member">
           <AddMemberForm onAddMember={addMember} />
         </section>
-      </main>
+{/*       </main> */}
     </div>
   );
 };
