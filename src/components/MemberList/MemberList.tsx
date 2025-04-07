@@ -1,4 +1,5 @@
-import React from 'react';
+// MemberList.tsx
+import React, { useState } from 'react';
 import { useMembers } from '../../hooks/useMembers';
 import MemberCard from '../MemberCard/MemberCard';
 import SortControls from '../SortControls/SortControls';
@@ -6,16 +7,32 @@ import SearchBar from '../SearchBar/SearchBar';
 import styles from './MemberList.module.css';
 import { FiUsers } from 'react-icons/fi';
 import AddMemberForm from '../AddMemberForm/AddMemberForm';
-// import MemberCard from './components/MemberCard/MemberCard';
+import { NewMember, Member } from '../../types/types';
 
 const MemberList: React.FC = () => {
   const { members, searchTerm, setSearchTerm, sortDirection, setSortDirection } = useMembers();
-  const { addMember } = useMembers();
+  const [allMembers, setAllMembers] = useState<Member[]>(members);
+
+  const addMember = (newMember: NewMember) => {
+    const newId = allMembers.length > 0 ? Math.max(...allMembers.map(m => m.id)) + 1 : 1;
+    const memberWithId: Member = { id: newId, ...newMember };
+    setAllMembers([...allMembers, memberWithId]);
+  };
+
+  const filteredMembers = allMembers.filter((member) =>
+    member.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const sortedMembers = [...filteredMembers].sort((a, b) => {
+    if (sortDirection === 'asc') return a.name.localeCompare(b.name);
+    if (sortDirection === 'desc') return b.name.localeCompare(a.name);
+    return 0;
+  });
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-      {FiUsers({ className: styles.headerIcon })}
+        {FiUsers({ className: styles.headerIcon })}
         <h1 className={styles.title}>Community Member Directory</h1>
         <p className={styles.subtitle}>Discover and connect with community members</p>
       </div>
@@ -32,15 +49,13 @@ const MemberList: React.FC = () => {
             direction={sortDirection}
             onSortChange={setSortDirection}
           />
-          
         </div>
         <AddMemberForm onAddMember={addMember} />
-
       </div>
 
-      {members.length > 0 ? (
+      {sortedMembers.length > 0 ? (
         <div className={styles.grid}>
-          {members.map((member) => (
+          {sortedMembers.map((member) => (
             <MemberCard key={member.id} member={member} />
           ))}
         </div>
@@ -55,4 +70,4 @@ const MemberList: React.FC = () => {
   );
 };
 
-export default MemberList;  
+export default MemberList;
