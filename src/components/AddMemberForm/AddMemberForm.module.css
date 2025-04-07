@@ -245,3 +245,63 @@
 .formGroup input {
   transition: all 0.2s ease;
 }
+.confirmationOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmationModal {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.confirmationHeader h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.confirmationBody {
+  margin-top: 1rem;
+}
+
+.confirmationDetails p {
+  margin: 0.25rem 0;
+}
+
+.confirmationActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.confirmButton,
+.cancelButton {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.confirmButton {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.cancelButton {
+  background-color: #e74c3c;
+  color: white;
+}
