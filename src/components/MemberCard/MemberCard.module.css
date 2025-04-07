@@ -11,6 +11,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+  position: relative;
 }
 
 .card:hover {
@@ -133,6 +134,13 @@
   border-top: 1px solid var(--border-color);
 }
 
+.detailContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .detailIcon {
   width: 18px;
   height: 18px;
@@ -144,12 +152,10 @@
 .detailLabel {
   color: #64748B;
   font-size: 0.9rem;
-  min-width: 80px;
 }
 
 .detailValue {
   color: var(--text-color);
-  flex: 1;
 }
 
 .tags {
@@ -189,11 +195,7 @@
 
   .detailItem {
     flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .detailLabel {
-    min-width: auto;
+    gap: 0.5rem;
   }
 }
 
@@ -205,5 +207,80 @@
   .toggleButton {
     padding: 0.6rem;
     font-size: 0.9rem;
+  }
+
+  .detailIcon {
+    align-self: flex-start;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.details.visible {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Add these new styles to MemberCard.module.css */
+.card.compact {
+  padding-bottom: 1rem;
+}
+
+.card.compact .mainContent {
+  gap: 0.75rem;
+}
+
+.card.compact .focus {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.card.compact .toggleButton {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* Update existing styles */
+.card {
+  /* Keep existing styles */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s ease;
+}
+
+.details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.details.visible {
+  max-height: 500px; /* Adjust based on content needs */
+}
+
+/* Update responsive styles */
+@media (max-width: 768px) {
+  .card.compact {
+    padding: 1rem;
+  }
+  
+  .card.compact .cardHeader {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card.compact .name {
+    font-size: 1rem;
+  }
+  
+  .card.compact .role {
+    font-size: 0.8rem;
   }
 }
