@@ -33,7 +33,7 @@ const App: React.FC = () => {
           <MemberList />
         </section>
 {/*         <section id="add-member"> */}
-          <AddMemberForm onAddMember={addMember} />
+{/*           <AddMemberForm onAddMember={addMember} /> */}
 {/*         </section> */}
 {/*       </main> */}
     </div>
