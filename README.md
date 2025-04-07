@@ -1,7 +1,11 @@
 # SuperMorpheus Community Member Directory
 
 A responsive web application for managing and exploring community members, built with React and TypeScript.
-🔗 **Live Site**: [https://super-morpheus-community-app.vercel.app/](https://super-morpheus-community-app.vercel.app/)
+
+The project is deployed on [https://super-morpheus-community-app.vercel.app/](https://super-morpheus-community-app.vercel.app/)
+
+The project repository is available on GitHub at https://github.com/shettynishanth/SuperMorpheus_Community_App
+
 ## Features
 
 - Real-time member search by name
