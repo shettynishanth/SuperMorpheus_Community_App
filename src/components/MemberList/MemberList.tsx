@@ -50,7 +50,7 @@ const MemberList: React.FC = () => {
             onSortChange={setSortDirection}
           />
         </div>
-        <AddMemberForm onAddMember={addMember} />
+        
       </div>
 
       {sortedMembers.length > 0 ? (
@@ -66,6 +66,7 @@ const MemberList: React.FC = () => {
           <p className={styles.emptyText}>Try adjusting your search or add a new member</p>
         </div>
       )}
+      <AddMemberForm onAddMember={addMember} />
     </div>
   );
 };
