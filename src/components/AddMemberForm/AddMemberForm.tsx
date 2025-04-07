@@ -41,7 +41,6 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ onAddMember }) => {
     setShowConfirmation(false);
   };
 
-
   const handleInterestKeyPress = (e: React.KeyboardEvent) => {
     if (['Enter', ','].includes(e.key)) {
       e.preventDefault();
@@ -158,9 +157,10 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ onAddMember }) => {
             <div className={styles.confirmationBody}>
               <p>Are you sure you want to add <strong>{formData.name}</strong> to the member directory?</p>
               <div className={styles.confirmationDetails}>
-                <p>Role: {formData.role || '-'}</p>
-                <p>Focus: {formData.focus || '-'}</p>
-                <p>Interests: {formData.interests.join(', ') || '-'}</p>
+                <p><strong>Role:</strong> {formData.role || '-'}</p>
+                <p><strong>Focus:</strong> {formData.focus || '-'}</p>
+                <p><strong>Joined Date:</strong> {formData.joinedDate || '-'}</p>
+                <p><strong>Interests:</strong> {formData.interests.join(', ') || '-'}</p>
               </div>
             </div>
             <div className={styles.confirmationActions}>
