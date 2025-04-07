@@ -22,7 +22,7 @@ const App: React.FC = () => {
         <ul className={`${styles.navLinks} ${menuActive ? styles.active : ''}`}>
           <li><a href="#members" className={styles.active}>Members</a></li>
           <li><a href="#add-member">Add Member</a></li>
-          <li><a href="#about">About</a></li>
+          
         </ul>
       </nav>
 
